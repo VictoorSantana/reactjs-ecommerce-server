@@ -20,6 +20,10 @@ app.use(express.json());
 app.use(cors());
 
 require('./routes/product.route')(app);
+require('./routes/folders.route')(app);
+require('./routes/files.route')(app);
+require('./routes/brands.route')(app);
+require('./routes/category.route')(app);
 
 app.listen(process.env.SERVER_PORT ? process.env.SERVER_PORT : 5000, () => {
     console.log(`Server is running on port ${process.env.SERVER_PORT ? process.env.SERVER_PORT : 5000}...`);
