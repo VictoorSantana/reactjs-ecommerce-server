@@ -1,0 +1,20 @@
+CREATE TABLE tb_products ( 
+id INT NOT NULL AUTO_INCREMENT, 
+title VARCHAR(40) NOT NULL 
+,description VARCHAR(40) NOT NULL 
+,price DECIMAL(4) NOT NULL 
+,amount INT NOT NULL 
+, post_at DATETIME NOT NULL 
+, id_file INT NOT NULL 
+, PRIMARY KEY (id));
+
+/* ALTER TABLE */ 
+
+ALTER TABLE tb_products 
+ADD COLUMN title VARCHAR(40) NOT NULL 
+,ADD COLUMN description VARCHAR(40) NOT NULL 
+,ADD COLUMN price DECIMAL(5,2).replace('.', ',')}) NOT NULL 
+,ADD COLUMN amount INT NOT NULL 
+, ADD COLUMN post_at DATETIME NOT NULL 
+, ADD COLUMN id_file INT NOT NULL 
+,

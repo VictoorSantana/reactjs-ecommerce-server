@@ -4,7 +4,8 @@ module.exports = new Sequelize(process.env.DATABASE_NAME, process.env.DATABASE_U
     host: process.env.DATABASE_HOST,
     dialect: process.env.DATABASE_TYPE,
     define: {
-        timestamps: process.env.DATABASE_DEFINE_TIMESTAMPS
+        timestamps: process.env.DATABASE_DEFINE_TIMESTAMPS,        
+        freezeTableName: true
     },
     pool: {
         max: 5,
@@ -12,5 +13,6 @@ module.exports = new Sequelize(process.env.DATABASE_NAME, process.env.DATABASE_U
         acquire: process.env.DATABASE_POOL_ACQUIRE,
         idle: process.env.DATABASE_POOL_IDLE
       }
+      
 });
   

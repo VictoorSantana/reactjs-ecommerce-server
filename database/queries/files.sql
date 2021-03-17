@@ -1,0 +1,21 @@
+CREATE TABLE tb_files ( 
+id INT NOT NULL AUTO_INCREMENT, 
+title VARCHAR(40) NOT NULL 
+,credit VARCHAR(100) NULL 
+,hash VARCHAR(15) NULL 
+,type VARCHAR(4) NULL 
+,id_folder INT NOT NULL 
+, PRIMARY KEY (id));ALTER TABLE tb_files 
+                ADD COLUMN createdAt DATETIME NOT NULL,
+                ADD COLUMN updatedAt DATETIME NOT NULL;
+                
+
+/* ALTER TABLE */ 
+
+ALTER TABLE tb_files 
+ADD COLUMN title VARCHAR(40) NOT NULL 
+,ADD COLUMN credit VARCHAR(100) NULL 
+,ADD COLUMN hash VARCHAR(15) NULL 
+,ADD COLUMN type VARCHAR(4) NULL 
+,ADD COLUMN id_folder INT NOT NULL 
+,

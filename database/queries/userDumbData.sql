@@ -1,0 +1,10 @@
+INSERT INTO tb_users ( email,name,password,id_status) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_users ( email,name,password,id_status) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_users ( email,name,password,id_status) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_users ( email,name,password,id_status) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_users ( email,name,password,id_status) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_users ( email,name,password,id_status) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_users ( email,name,password,id_status) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_users ( email,name,password,id_status) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_users ( email,name,password,id_status) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_users ( email,name,password,id_status) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum',1); 

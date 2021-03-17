@@ -1,0 +1,11 @@
+CREATE TABLE tb_access ( 
+id INT NOT NULL AUTO_INCREMENT, 
+id_user INT NOT NULL 
+, endpoint VARCHAR(40) NOT NULL 
+,PRIMARY KEY (id));
+
+/* ALTER TABLE */ 
+
+ALTER TABLE tb_access 
+ADD COLUMN id_user INT NOT NULL 
+, ADD COLUMN endpoint VARCHAR(40) NOT NULL 

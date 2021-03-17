@@ -1,0 +1,44 @@
+
+
+
+... join ['name']
+
+tipo: "integer",
+subtipo: "static",
+default: {
+	tipo: "unico|varios",
+	subtipo: "mark|dropdown"
+	items: [{value: "1", label: "Ativo"}, {value: "0", label: "Inativo"}]
+}
+
+ok Implementar campos do tipo.
+ok Implementar label
+ok Implementar subtipo
+ok Implementar "max", e "not null"
+ok Implementar joins
+ok Implmentar importação de rotas
+ok Implementar abertura de link para 11 direto no formulário
+ok Ajustar label da tabela no reactjs
+
+
+* Tabelas de tipo visualização, só faz get mesmo
+* URGENTE ... trocar o nome da chave no json
+* Implementar botão anti double click e loading gif
+* Melhorar loading
+* Melhorar as tratativas de erro
+* Imports dinamicos
+* Implementar dumb data (melhorar);
+* Implementar editor texto essay
+OK Implementar 1N (grid)
+OK Implementar attach
+OK Implementar file
+OK Melhorar, encurtar as validações no controller
+* Adicionar botão, "salvar e voltar" no formulário
+* Implementar usuário, foto etc
+* Onclick no dado 11 abrir json tabulado
+* Implementar escopo render corpo.js
+* Retirar autocomplete dos formulários e color submit no login
+* Implementar unique e default
+* Implementar dashboard ou home
+ok Arrumar sidemenu para ser dinamico
+* Implementar debug (melhorias, limpar, e retirar do menu)

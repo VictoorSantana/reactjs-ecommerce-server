@@ -1,0 +1,10 @@
+INSERT INTO tb_files ( title,credit,hash,type,id_folder) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_files ( title,credit,hash,type,id_folder) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_files ( title,credit,hash,type,id_folder) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_files ( title,credit,hash,type,id_folder) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_files ( title,credit,hash,type,id_folder) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_files ( title,credit,hash,type,id_folder) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_files ( title,credit,hash,type,id_folder) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_files ( title,credit,hash,type,id_folder) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_files ( title,credit,hash,type,id_folder) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum','lorem ipsum',1); 
+INSERT INTO tb_files ( title,credit,hash,type,id_folder) VALUES ('lorem ipsum','lorem ipsum','lorem ipsum','lorem ipsum',1); 
