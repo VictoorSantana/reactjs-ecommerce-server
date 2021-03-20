@@ -1,4 +1,4 @@
-const { Op } = require('sequelize');
+const { Op, Sequelize } = require('sequelize');
 const debug = require('../../utils/debug');
 const headerSet = require('../../utils/functions/headerSet');
 const FolderSchema = require('../../database/schemas/folder.schema');
@@ -6,12 +6,13 @@ const { FolderModel } = require('../../database/models/models');
 exports.findAll = function (req, res) {
 	let { offset, limit, order } = headerSet.getItems(req.headers);
 	let exclude = [];
+	let include = [];
 	FolderModel
 		.findAndCountAll({
 			offset,
 			limit,
 			order,
-			attributes: {exclude},
+			attributes: {exclude, include},
 			include: [
 			{ model: FolderModel, as: 'Folder' }, 
 			] 
@@ -131,4 +132,21 @@ exports.delete = function (req, res) {
 };
 
 
-/*custom*//*custom*/
+/*custom*/
+const conn = require('../../database/connection');
+
+exports.foldersAndFiles = function (req, res) {
+	const id = isNaN(Number(req.params.id)) ? 0 : Number(req.params.id);
+	conn
+		.query(` SELECT * FROM vw_folder_file vwf WHERE vwf.id_folder = ${id}; `, { type: "SELECT" })
+		.then(result => {
+			res.status(200).json(result);
+		})
+		.catch(e => {
+			debug.save(e, 'Folder - foldersNFiles');
+			res.status(500).json(e.original.sqlMessage || e.original || e);
+		});
+
+};
+
+/*custom*/

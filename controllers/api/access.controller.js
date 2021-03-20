@@ -1,4 +1,4 @@
-const { Op } = require('sequelize');
+const { Op, Sequelize } = require('sequelize');
 const debug = require('../../utils/debug');
 const headerSet = require('../../utils/functions/headerSet');
 const AccessSchema = require('../../database/schemas/access.schema');
@@ -6,12 +6,13 @@ const { AccessModel,UserModel } = require('../../database/models/models');
 exports.findAll = function (req, res) {
 	let { offset, limit, order } = headerSet.getItems(req.headers);
 	let exclude = [];
+	let include = [];
 	AccessModel
 		.findAndCountAll({
 			offset,
 			limit,
 			order,
-			attributes: {exclude},
+			attributes: {exclude, include},
 			include: [
 			{ model: UserModel, as: 'User' }, 
 			] 

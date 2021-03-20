@@ -9,5 +9,7 @@ let { verify } = require('../routes/middleware/authentication');	var controller 
 	app.delete('/api/folder/:id', verify('deletar folder'), controller.delete);
 
 
-/*custom*//*custom*/
+/*custom*/
+	app.get('/api/folder/custom/foldernfiles/:id', verify('attach'), controller.foldersAndFiles);
+/*custom*/
 }

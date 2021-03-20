@@ -5,9 +5,8 @@
 
 tipo: "integer",
 subtipo: "static",
-default: {
-	tipo: "unico|varios",
-	subtipo: "mark|dropdown"
+default: {	
+	tipo: "mark|dropdown"
 	items: [{value: "1", label: "Ativo"}, {value: "0", label: "Inativo"}]
 }
 
@@ -21,6 +20,7 @@ ok Implementar abertura de link para 11 direto no formulário
 ok Ajustar label da tabela no reactjs
 
 
+* Histórico de path que foi
 * Tabelas de tipo visualização, só faz get mesmo
 * URGENTE ... trocar o nome da chave no json
 * Implementar botão anti double click e loading gif
@@ -29,6 +29,7 @@ ok Ajustar label da tabela no reactjs
 * Imports dinamicos
 * Implementar dumb data (melhorar);
 * Implementar editor texto essay
+* Log escrever em HTML
 OK Implementar 1N (grid)
 OK Implementar attach
 OK Implementar file
@@ -38,7 +39,8 @@ OK Melhorar, encurtar as validações no controller
 * Onclick no dado 11 abrir json tabulado
 * Implementar escopo render corpo.js
 * Retirar autocomplete dos formulários e color submit no login
-* Implementar unique e default
+* Implementar unique
+OK Implementar default
 * Implementar dashboard ou home
-ok Arrumar sidemenu para ser dinamico
+OK Arrumar sidemenu para ser dinamico
 * Implementar debug (melhorias, limpar, e retirar do menu)

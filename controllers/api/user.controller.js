@@ -1,27 +1,29 @@
-const { Op } = require('sequelize');
+const { Op, Sequelize } = require('sequelize');
 const debug = require('../../utils/debug');
 const headerSet = require('../../utils/functions/headerSet');
 const UserSchema = require('../../database/schemas/user.schema');
-const { UserModel, FileModel } = require('../../database/models/models');
+const { UserModel,FileModel } = require('../../database/models/models');
 exports.findAll = function (req, res) {
 	let { offset, limit, order } = headerSet.getItems(req.headers);
 	let exclude = [];
+	let include = [];
 	exclude.push('password');
-	UserModel
+	exclude.push('id_status');
+	include.push([Sequelize.literal('CASE  WHEN id_status = 2 THEN "Suspenso"  WHEN id_status = 1 THEN "Ativo"  WHEN id_status = 0 THEN "Inativo"  END'), 'id_status']);	UserModel
 		.findAndCountAll({
 			offset,
 			limit,
 			order,
-			attributes: { exclude },
+			attributes: {exclude, include},
 			include: [
-				{ model: FileModel, as: 'File' },
-			]
-		})
+			{ model: FileModel, as: 'File' }, 
+			] 
+			})
 		.then(result => {
 			res.status(200).json(result);
 		})
 		.catch(e => {
-			debug.save(e, 'User - findAll');
+		 debug.save(e, 'User - findAll'); 
 			res.status(500).json(e.original.sqlMessage || e.original || e);
 		});
 };
@@ -30,18 +32,17 @@ exports.findOne = function (req, res) {
 	let exclude = [];
 	exclude.push('password');
 	UserModel
-		.findAll({
-			attributes: { exclude },
+		.findAll({attributes: {exclude}, 
 			include: [
-				{ model: FileModel, as: 'File' },
-			],
+			{ model: FileModel, as: 'File' }, 
+			], 
 			where: { id }
 		})
-		.then(result => {
+	.then(result => {
 			res.status(200).json(result);
 		})
 		.catch(e => {
-			debug.save(e, 'User - findOne');
+		 debug.save(e, 'User - findOne'); 
 			res.status(500).json(e.original.sqlMessage || e.original || e);
 		});
 };
@@ -51,16 +52,16 @@ exports.findByEmail = function (req, res) {
 	const email = req.params.email;
 	UserModel
 		.findAndCountAll({
-			offset, limit, order, attributes: { exclude }, include: [
-				{ model: FileModel, as: 'File' },
-			],
+			offset, limit, order, attributes: {exclude},			include: [
+			{ model: FileModel, as: 'File' }, 
+			], 
 			where: { email: { [Op.like]: '%' + email + '%' } }
-		})
+		},)
 		.then(result => {
 			res.status(200).json(result);
 		})
 		.catch(e => {
-			debug.save(e, 'User - findByEmail');
+		 debug.save(e, 'User - findByEmail'); 
 			res.status(500).json(e.original.sqlMessage || e.original || e);
 		});
 };
@@ -70,16 +71,16 @@ exports.findByName = function (req, res) {
 	const name = req.params.name;
 	UserModel
 		.findAndCountAll({
-			offset, limit, order, attributes: { exclude }, include: [
-				{ model: FileModel, as: 'File' },
-			],
+			offset, limit, order, attributes: {exclude},			include: [
+			{ model: FileModel, as: 'File' }, 
+			], 
 			where: { name: { [Op.like]: '%' + name + '%' } }
-		})
+		},)
 		.then(result => {
 			res.status(200).json(result);
 		})
 		.catch(e => {
-			debug.save(e, 'User - findByName');
+		 debug.save(e, 'User - findByName'); 
 			res.status(500).json(e.original.sqlMessage || e.original || e);
 		});
 };
@@ -89,13 +90,13 @@ exports.create = function (req, res) {
 		UserModel
 			.create(value)
 			.then(result => {
-				res.status(201).json(result);
+			res.status(201).json(result);
 			})
 			.catch(e => {
 				res.status(500).json(e);
-			});
+		});
 	} else {
-		debug.save(e, 'User - create');
+		 debug.save(e, 'User - create'); 
 		res.status(500).json(error);
 	}
 };
@@ -104,16 +105,16 @@ exports.update = function (req, res) {
 	const { error, value } = UserSchema.validate(req.body);
 	if (error === undefined) {
 		UserModel
-			.update(value, {
-				where: { id }
-			})
-			.then(result => {
-				res.status(200).json(result);
-			})
-			.catch(e => {
-				debug.save(e, 'User - update');
-				res.status(500).json(e.original.sqlMessage || e.original || e);
-			});
+		.update(value, {
+			where: { id }
+		})
+		.then(result => {
+			res.status(200).json(result);
+		})
+		.catch(e => {
+		 debug.save(e, 'User - update'); 
+			res.status(500).json(e.original.sqlMessage || e.original || e);
+		});
 	} else {
 		res.status(500).json(error);
 	}
@@ -128,7 +129,7 @@ exports.delete = function (req, res) {
 			res.status(200).json(result);
 		})
 		.catch(e => {
-			debug.save(e, 'User - delete');
+		 debug.save(e, 'User - delete'); 
 			res.status(500).json(e.original.sqlMessage || e.original || e);
 		});
 };
@@ -199,7 +200,7 @@ exports.me = function (req, res) {
 	UserModel
 		.findAll({
 			attributes: ['email', 'name'],
-			where: { id: isNaN(Number(req.decoded)) ? '-1' : Number(req.decoded) }			
+			where: { id: isNaN(Number(req.decoded)) ? '-1' : Number(req.decoded) }
 		})
 		.then(result => {
 			if (result.length > 0) {

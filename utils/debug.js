@@ -6,15 +6,14 @@ module.exports = {
     save: function (flag, place) {
         let stringSave = '';
 
-        stringSave = '-------' + '\n';
-        stringSave += new Date().toISOString() + '\n';
-        stringSave += place + '\n';
-        stringSave += JSON.stringify(flag) + '\n';
-        stringSave += '\n';
-        stringSave += '-------';
-        stringSave += '\n';
+        stringSave = `
+        <h5> ${new Date().toISOString()} </h5> \n
+        <h4 style="color: red;"> ${place} </h4> \n
+        <p> ${JSON.stringify(flag)} </p> \n
+        <hr> \n
+        `;        
 
-        fs.appendFile(__dirname + '/../public/cache/error.txt', stringSave, function (err) {
+        fs.appendFile(__dirname + '/../public/cache/error.htm', stringSave, function (err) {
             if (err) {
                 console.log(err);
             } else {

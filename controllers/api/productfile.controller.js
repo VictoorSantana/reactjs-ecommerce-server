@@ -1,4 +1,4 @@
-const { Op } = require('sequelize');
+const { Op, Sequelize } = require('sequelize');
 const debug = require('../../utils/debug');
 const headerSet = require('../../utils/functions/headerSet');
 const ProductfileSchema = require('../../database/schemas/productfile.schema');
@@ -6,12 +6,13 @@ const { ProductfileModel,ProductModel,FileModel } = require('../../database/mode
 exports.findAll = function (req, res) {
 	let { offset, limit, order } = headerSet.getItems(req.headers);
 	let exclude = [];
+	let include = [];
 	ProductfileModel
 		.findAndCountAll({
 			offset,
 			limit,
 			order,
-			attributes: {exclude},
+			attributes: {exclude, include},
 			include: [
 			{ model: ProductModel, as: 'Product' }, 
 			{ model: FileModel, as: 'File' }, 
