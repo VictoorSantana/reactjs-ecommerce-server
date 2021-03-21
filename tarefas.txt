@@ -10,14 +10,14 @@ default: {
 	items: [{value: "1", label: "Ativo"}, {value: "0", label: "Inativo"}]
 }
 
-ok Implementar campos do tipo.
-ok Implementar label
-ok Implementar subtipo
-ok Implementar "max", e "not null"
-ok Implementar joins
-ok Implmentar importação de rotas
-ok Implementar abertura de link para 11 direto no formulário
-ok Ajustar label da tabela no reactjs
+OK Implementar campos do tipo.
+OK Implementar label
+OK Implementar subtipo
+OK Implementar "max", e "not null"
+OK Implementar joins
+OK Implmentar importação de rotas
+OK Implementar abertura de link para 11 direto no formulário
+OK Ajustar label da tabela no reactjs
 
 
 * Histórico de path que foi
@@ -29,7 +29,7 @@ ok Ajustar label da tabela no reactjs
 * Imports dinamicos
 * Implementar dumb data (melhorar);
 * Implementar editor texto essay
-* Log escrever em HTML
+OK Log escrever em HTML
 OK Implementar 1N (grid)
 OK Implementar attach
 OK Implementar file
